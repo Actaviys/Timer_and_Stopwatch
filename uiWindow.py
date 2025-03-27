@@ -16,9 +16,9 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(550, 187)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("c:\\Users\\A1\\Desktop\\MY_Draft\\Python\\Timer_and_Stopwatch_program\\Draft\\icon-chess-clock-1949946.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("/home/a1/Desktop/Timer_and_Stopwatch/iconey.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         
-        # icon.addPixmap(QtGui.QPixmap("c:\\Users\\A1\\Desktop\\MY_Draft\\Python\\Timer_and_Stopwatch_program\\Draft\\icon-chess-clock-1949946.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        # icon.addPixmap(QtGui.QPixmap("c:\\Users\\A1\\Desktop\\MY_Draft\\Python\\Timer_and_Stopwatch_program\\Draft\\iconey.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 97, 6, 223), stop:0.185042 rgba(0, 116, 4, 233), stop:0.359003 rgba(0, 138, 16, 235), stop:1 rgba(0, 184, 41, 233));\n"
 "selection-background-color: qlineargradient(spread:pad, x1:0.5, y1:0.9, x2:0.5, y2:0, stop:0 rgba(7, 47, 9, 236), stop:1 rgba(4, 216, 0, 127));\n"
