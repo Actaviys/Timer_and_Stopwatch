@@ -7,7 +7,7 @@ import asyncio
 
 
 
-from ts_wind import Ui_MainWindow
+from uiWindow import Ui_MainWindow
 app = QtWidgets.QApplication(sys.argv)
 MainWindow = QtWidgets.QMainWindow()
 ui = Ui_MainWindow()
@@ -55,6 +55,7 @@ stopwatch_thread = StopwatchThread(timer_watch)
 #####   Секундомір    #####
 def start_stopwch():
     ui.Button_Start_Stopwatch.setEnabled(False)
+    ui.Button_Pause_Stopwatch.setEnabled(True)
     ui.StatusBar.showMessage("Старт секундоміра")
     global stopwatch_thread
     stopwatch_thread = StopwatchThread(timer_watch)
@@ -64,15 +65,18 @@ ui.Button_Start_Stopwatch.clicked.connect(start_stopwch)
 
 def stop_stopwch():
     ui.Button_Start_Stopwatch.setEnabled(True)
+    ui.Button_Pause_Stopwatch.setEnabled(False)
     stopwatch_thread.stop()
     update_stopwatch_label(0)
-    ui.StatusBar.showMessage("Скинуто секундомір", 5000)
-ui.Button_Reset_Stopwatch.clicked.connect(stop_stopwch)
+    ui.StatusBar.showMessage("Секундомір скинуто", 5000)
+ui.Button_Stop_Stopwatch.clicked.connect(stop_stopwch)
 
 def pause_stopwch():
+    ui.Button_Pause_Stopwatch.setEnabled(False)
     ui.Button_Start_Stopwatch.setEnabled(True)
     timer_watch.pause_stopwatch()
     ui.StatusBar.showMessage("Секундомір призупинено")
+ui.Button_Pause_Stopwatch.setEnabled(False)
 ui.Button_Pause_Stopwatch.clicked.connect(pause_stopwch)
 #####   #####
 
@@ -82,8 +86,8 @@ ui.Button_Pause_Stopwatch.clicked.connect(pause_stopwch)
 
 
 
-##### Таймер
-timer_thread = None  # Створюється при запуску таймера
+#####   Таймер    #####
+timer_thread = None  # Створюється при запуску програми
 curent_timer_seconds = 1
 timer_seconds_count = 0
 flag_status_sp = False
@@ -151,7 +155,7 @@ def stop_tmr():
         timer_thread.stop()
         update_timer_label(0)
         ui.StatusBar.showMessage("Таймер зупинено", 5000)
-ui.Button_Stop_Timer.clicked.connect(stop_tmr)
+ui.Button_Reset_Timer.clicked.connect(stop_tmr)
 
 
 
@@ -245,7 +249,9 @@ def update_timer_label(seconds):
 
 
 
-
-if __name__ == "__main__":
+def open_window(): # Функція для відкриття вікна
     MainWindow.show()
     app.exec_()
+
+if __name__ == "__main__":
+    open_window()
