@@ -1,2 +1,2 @@
-# cd C:\\Users\\A1\\Desktop\\Timer_and_Stopwatch
-python main.pyw
+cd /home/a1/Desktop/Timer_and_Stopwatch
+python3 main.pyw
