@@ -16,7 +16,9 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(550, 187)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("/home/a1/Desktop/Timer_and_Stopwatch/iconey.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("C:\\Users\\dimai\\Desktop\\Timer_and_Stopwatch\\iconey.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+
+        # icon.addPixmap(QtGui.QPixmap("/home/a1/Desktop/Timer_and_Stopwatch/iconey.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         
         # icon.addPixmap(QtGui.QPixmap("c:\\Users\\A1\\Desktop\\MY_Draft\\Python\\Timer_and_Stopwatch_program\\Draft\\iconey.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
