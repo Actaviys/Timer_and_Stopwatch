@@ -7,7 +7,7 @@ import asyncio
 
 
 
-from uiWindow import Ui_MainWindow
+from uiWindow1 import Ui_MainWindow
 app = QtWidgets.QApplication(sys.argv)
 MainWindow = QtWidgets.QMainWindow()
 ui = Ui_MainWindow()
@@ -255,3 +255,4 @@ def open_window(): # Функція для відкриття вікна
 
 if __name__ == "__main__":
     open_window()
+
