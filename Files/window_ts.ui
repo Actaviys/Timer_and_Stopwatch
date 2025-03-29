@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>Draft/icon-chess-clock-1949946.ico</normaloff>Draft/icon-chess-clock-1949946.ico</iconset>
+    <normaloff>iconey.png</normaloff>iconey.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 97, 6, 223), stop:0.185042 rgba(0, 116, 4, 233), stop:0.359003 rgba(0, 138, 16, 235), stop:1 rgba(0, 184, 41, 233));
