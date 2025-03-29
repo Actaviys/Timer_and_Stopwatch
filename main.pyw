@@ -267,9 +267,11 @@ def func_check_box_sound_controll():
     stat_check = ui.CheckBox_Sound.checkState()
 
     if stat_check > 0:
+        ui.CheckBox_Sound.setText("On")
         file_icon_dir = "Files/icon_enable.png"
         flag_sound_chec = 1
     else:
+        ui.CheckBox_Sound.setText("Off")
         file_icon_dir = "Files/icon_mute.png"
         flag_sound_chec = 0
     
@@ -279,6 +281,9 @@ def func_check_box_sound_controll():
 # ui.CheckBox_Sound.clicked.connect(func_check_box_sound_controll)
 ui.CheckBox_Sound.stateChanged.connect(func_check_box_sound_controll)
 ##########           ##########
+
+
+
 
 
 

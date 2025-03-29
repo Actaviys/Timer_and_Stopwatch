@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
-    <height>195</height>
+    <width>570</width>
+    <height>222</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,6 +21,15 @@
    <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 97, 6, 223), stop:0.185042 rgba(0, 116, 4, 233), stop:0.359003 rgba(0, 138, 16, 235), stop:1 rgba(0, 184, 41, 233));
 selection-background-color: qlineargradient(spread:pad, x1:0.5, y1:0.9, x2:0.5, y2:0, stop:0 rgba(7, 47, 9, 236), stop:1 rgba(4, 216, 0, 127));
 alternate-background-color: qlineargradient(spread:pad, x1:0.5, y1:0.9, x2:0.5, y2:0, stop:0 rgba(7, 47, 9, 236), stop:1 rgba(4, 216, 0, 127));</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>25</width>
+    <height>25</height>
+   </size>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -45,78 +54,6 @@ alternate-background-color: qlineargradient(spread:pad, x1:0.5, y1:0.9, x2:0.5, 
     <property name="verticalSpacing">
      <number>0</number>
     </property>
-    <item row="3" column="0">
-     <widget class="QLabel" name="Output_Label_Stopwatch">
-      <property name="font">
-       <font>
-        <family>Comic Sans MS</family>
-        <pointsize>26</pointsize>
-        <strikeout>false</strikeout>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 97, 6, 223), stop:0.193548 rgba(0, 116, 4, 233), stop:0.476369 rgba(0, 144, 17, 208), stop:1 rgba(0, 184, 41, 0));</string>
-      </property>
-      <property name="text">
-       <string>00:00:00</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QPushButton" name="Button_Pause_Stopwatch">
-        <property name="font">
-         <font>
-          <family>Sitka Small</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Pause</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="Button_Start_Stopwatch">
-        <property name="font">
-         <font>
-          <family>Sitka Small</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Start</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="Button_Stop_Stopwatch">
-        <property name="font">
-         <font>
-          <family>Sitka Small</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Stop</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
     <item row="0" column="2">
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
@@ -172,32 +109,6 @@ alternate-background-color: qlineargradient(spread:pad, x1:0.5, y1:0.9, x2:0.5, 
        </widget>
       </item>
      </layout>
-    </item>
-    <item row="0" column="1">
-     <widget class="Line" name="line_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="LabelSW_Outp">
-      <property name="font">
-       <font>
-        <family>Sitka Small</family>
-        <pointsize>15</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 97, 6, 223), stop:0.193548 rgba(0, 116, 4, 233), stop:0.476369 rgba(0, 144, 17, 208), stop:1 rgba(0, 184, 41, 0));</string>
-      </property>
-      <property name="text">
-       <string>Stopwatch</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
     </item>
     <item row="2" column="2">
      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,0,0">
@@ -333,6 +244,84 @@ gridline-color: rgb(0, 0, 0);</string>
       </item>
      </layout>
     </item>
+    <item row="2" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="Button_Pause_Stopwatch">
+        <property name="font">
+         <font>
+          <family>Sitka Small</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Pause</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Button_Start_Stopwatch">
+        <property name="font">
+         <font>
+          <family>Sitka Small</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Start</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="Button_Stop_Stopwatch">
+        <property name="font">
+         <font>
+          <family>Sitka Small</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Stop</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="LabelSW_Outp">
+      <property name="font">
+       <font>
+        <family>Sitka Small</family>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 97, 6, 223), stop:0.193548 rgba(0, 116, 4, 233), stop:0.476369 rgba(0, 144, 17, 208), stop:1 rgba(0, 184, 41, 0));</string>
+      </property>
+      <property name="text">
+       <string>Stopwatch</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
     <item row="3" column="2">
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
@@ -453,8 +442,10 @@ gridline-color: rgb(0, 0, 0);</string>
          <widget class="QCheckBox" name="CheckBox_Sound">
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
-            <strikeout>true</strikeout>
+            <pointsize>9</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+            <strikeout>false</strikeout>
            </font>
           </property>
           <property name="cursor">
@@ -473,11 +464,17 @@ gridline-color: rgb(0, 0, 0);</string>
            <string notr="true">background-color: rgba(24, 161, 0, 0);</string>
           </property>
           <property name="text">
-           <string/>
+           <string>Off</string>
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>free-icon-mute-9723911.png</normaloff>free-icon-mute-9723911.png</iconset>
+            <normaloff>icon_mute.png</normaloff>icon_mute.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>16</width>
+            <height>16</height>
+           </size>
           </property>
           <property name="tristate">
            <bool>false</bool>
@@ -494,6 +491,110 @@ gridline-color: rgb(0, 0, 0);</string>
        <enum>Qt::Vertical</enum>
       </property>
      </widget>
+    </item>
+    <item row="3" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="Output_Label_Stopwatch">
+        <property name="font">
+         <font>
+          <family>Comic Sans MS</family>
+          <pointsize>26</pointsize>
+          <strikeout>false</strikeout>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 97, 6, 223), stop:0.193548 rgba(0, 116, 4, 233), stop:0.476369 rgba(0, 144, 17, 208), stop:1 rgba(0, 184, 41, 0));</string>
+        </property>
+        <property name="text">
+         <string>00:00:00</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLineEdit" name="LineEdit_Time_Stopwath">
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>234</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="ComboBox_Stopwatch">
+          <property name="font">
+           <font>
+            <family>Sitka Small</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(24, 161, 0, 200);</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Seconds</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Minutes</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Hours</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Days</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="CheckBox_Stopwatch">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(24, 161, 0, 0);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>icon_block.png</normaloff>icon_block.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>25</width>
+            <height>25</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
