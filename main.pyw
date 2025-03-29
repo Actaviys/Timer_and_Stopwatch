@@ -7,7 +7,7 @@ import asyncio
 
 
 
-from uiWindow1 import Ui_MainWindow
+from uiWindow import Ui_MainWindow
 app = QtWidgets.QApplication(sys.argv)
 MainWindow = QtWidgets.QMainWindow()
 ui = Ui_MainWindow()
@@ -86,7 +86,7 @@ ui.Button_Pause_Stopwatch.clicked.connect(pause_stopwch)
 
 
 
-#####   Таймер    #####
+#########   Таймер    #########
 timer_thread = None  # Створюється при запуску програми
 curent_timer_seconds = 1
 timer_seconds_count = 0
@@ -100,12 +100,13 @@ def read_signals_tread(val):
     
     time_buff = val
     if val <= 0:
-        if timer_thread:
-            timer_thread.stop()
-            
         ui.Button_Start_Timer.setEnabled(True) # Вмикання кнопки
         ui.Button_Pause_Timer.setEnabled(False) # Вимикання кнопки
         ui.StatusBar.showMessage("")
+        playing_sound_completion() # Функція для звукового сигналу
+        
+        if timer_thread:
+            timer_thread.stop()
 
 def start_tmr(seconds_in):
     global timer_thread
@@ -204,11 +205,7 @@ ui.ComboBox_Timer.activated.connect(combo_box_timer_set_units)
 #####
 
 
-
-
-
-
-#####   Кнопки для таймера    #####
+#   Кнопки для таймера    #
 def count_btn(): ui.LineEdit_Inp_Timer.setText(ui.Timer_Button_5.text())
 ui.Timer_Button_5.clicked.connect(count_btn)
 
@@ -226,8 +223,7 @@ ui.Timer_Button_25.clicked.connect(count_btn)
 
 def count_btn(): ui.LineEdit_Inp_Timer.setText(ui.Timer_Button_30.text())
 ui.Timer_Button_30.clicked.connect(count_btn)
-#####   #####
-
+#####
 
 
 
@@ -242,9 +238,45 @@ def update_timer_label(seconds):
         ui.Output_Label_Timer.setText(f"{seconds//3600:02}:{(seconds%3600)//60:02}:{seconds%60:02}")
     else:
         ui.Output_Label_Timer.setText(f"{(seconds%3600)//60:02}:{seconds%60:02}")
-#####
+#########             #########
 
 
+
+
+flag_sound_chec = 0
+##########   Звуковий сигнал     ########## 
+def playing_sound_completion():
+    global flag_sound_chec
+    if flag_sound_chec == 1:
+        print("OKKKK")
+    else:pass
+#####       #####
+
+
+
+
+#####   Виставляю іконку і перемикаю флажок звуку   #####
+from PyQt5 import QtGui
+iconS = QtGui.QIcon()
+file_icon_dir = ""
+def func_check_box_sound_controll():
+    """"""
+    global flag_sound_chec
+    stat_check = ui.CheckBox_Sound.checkState()
+
+    if stat_check > 0:
+        file_icon_dir = "Files/icon_enable.png"
+        flag_sound_chec = 1
+    else:
+        file_icon_dir = "Files/icon_mute.png"
+        flag_sound_chec = 0
+    
+    iconS.addPixmap(QtGui.QPixmap(file_icon_dir), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+    ui.CheckBox_Sound.setIcon(iconS)
+    
+# ui.CheckBox_Sound.clicked.connect(func_check_box_sound_controll)
+ui.CheckBox_Sound.stateChanged.connect(func_check_box_sound_controll)
+##########           ##########
 
 
 
