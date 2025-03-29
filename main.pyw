@@ -244,11 +244,13 @@ def update_timer_label(seconds):
 
 
 flag_sound_chec = 0
-##########   Звуковий сигнал     ########## 
+##########   Звуковий сигнал     ##########
+from playsound import playsound
 def playing_sound_completion():
     global flag_sound_chec
     if flag_sound_chec == 1:
         print("OKKKK")
+        playsound("Files/signal_timer.mp3")
     else:pass
 #####       #####
 
