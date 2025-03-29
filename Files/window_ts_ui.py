@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(570, 222)
         icon = QIcon()
-        icon.addFile(u"Draft/icon-chess-clock-1949946.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"iconey.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(0, 97, 6, 223), stop:0.185042 rgba(0, 116, 4, 233), stop:0.359003 rgba(0, 138, 16, 235), stop:1 rgba(0, 184, 41, 233));\n"
 "selection-background-color: qlineargradient(spread:pad, x1:0.5, y1:0.9, x2:0.5, y2:0, stop:0 rgba(7, 47, 9, 236), stop:1 rgba(4, 216, 0, 127));\n"
@@ -230,7 +230,7 @@ class Ui_MainWindow(object):
         self.CheckBox_Sound.setAutoFillBackground(False)
         self.CheckBox_Sound.setStyleSheet(u"background-color: rgba(24, 161, 0, 0);")
         icon1 = QIcon()
-        icon1.addFile(u"icon_mute.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u"icon_mute_t.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.CheckBox_Sound.setIcon(icon1)
         self.CheckBox_Sound.setIconSize(QSize(16, 16))
         self.CheckBox_Sound.setTristate(False)
@@ -294,7 +294,7 @@ class Ui_MainWindow(object):
         self.CheckBox_Stopwatch.setLayoutDirection(Qt.RightToLeft)
         self.CheckBox_Stopwatch.setStyleSheet(u"background-color: rgba(24, 161, 0, 0);")
         icon2 = QIcon()
-        icon2.addFile(u"icon_block.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon2.addFile(u"icon_sw_stop.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.CheckBox_Stopwatch.setIcon(icon2)
         self.CheckBox_Stopwatch.setIconSize(QSize(25, 25))
 
@@ -347,7 +347,7 @@ class Ui_MainWindow(object):
         self.Timer_Button_5.setText(QCoreApplication.translate("MainWindow", u"5", None))
         self.CheckBox_Sound.setText(QCoreApplication.translate("MainWindow", u"Off", None))
         self.Output_Label_Stopwatch.setText(QCoreApplication.translate("MainWindow", u"00:00:00", None))
-        self.LineEdit_Time_Stopwath.setText(QCoreApplication.translate("MainWindow", u"234", None))
+        self.LineEdit_Time_Stopwath.setText("")
         self.ComboBox_Stopwatch.setItemText(0, QCoreApplication.translate("MainWindow", u"Seconds", None))
         self.ComboBox_Stopwatch.setItemText(1, QCoreApplication.translate("MainWindow", u"Minutes", None))
         self.ComboBox_Stopwatch.setItemText(2, QCoreApplication.translate("MainWindow", u"Hours", None))

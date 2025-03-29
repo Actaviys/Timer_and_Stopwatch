@@ -1,8 +1,13 @@
 import sys
 from PyQt5 import QtWidgets
+from PyQt5 import QtGui
 from PyQt5.QtCore import QThread, pyqtSignal
 from bookkeeper_timer_stopwatch import TimerTimeWatch
 import asyncio
+
+
+# from playsound3 import playsound
+from playsound import playsound
 
 
 
@@ -48,11 +53,47 @@ class TimerThread(QThread):
         self.quit()
 
 
+
+
+
 ### Використання в UI-класі: ###
 timer_watch = TimerTimeWatch()
 stopwatch_thread = StopwatchThread(timer_watch)
 
-#####   Секундомір    #####
+
+#########   Секундомір    #########
+# def combo_box_swtopwatch_set_units(iput_val):
+#     curr_combo_box = 0
+#     if iput_val == "seconds":
+#         curr_combo_box = 1
+#     elif iput_val == "minutes":
+#         curr_combo_box = 60
+#     elif iput_val == "hours":
+#         curr_combo_box = 3600
+#     elif iput_val == "days":
+#         curr_combo_box = 86400
+#     return curr_combo_box
+
+# def read_signals_tread_stopwatch(val):
+#     sw_time_buff = val
+#     curent_stopwatch_seconds = 0
+#     inp_line_edit = 0
+    
+#     inp_combo_box = ui.ComboBox_Stopwatch.currentText().lower()
+#     ret_current_tme = combo_box_swtopwatch_set_units(inp_combo_box)
+    
+#     try: inp_line_edit = int(ui.LineEdit_Time_Stopwath.text())
+#     except: ui.StatusBar.showMessage("Введіть число!!!", 3000)
+    
+#     if ui.CheckBox_Stopwatch.checkState() > 0:
+#         if inp_line_edit <= sw_time_buff:
+#             print("WWWWWWWWWWWWWWWWWWWWW")
+#             sw_time_buff = 0
+        
+    
+#     else: pass
+
+###
 def start_stopwch():
     ui.Button_Start_Stopwatch.setEnabled(False)
     ui.Button_Pause_Stopwatch.setEnabled(True)
@@ -60,6 +101,7 @@ def start_stopwch():
     global stopwatch_thread
     stopwatch_thread = StopwatchThread(timer_watch)
     stopwatch_thread.update_signal.connect(update_stopwatch_label)
+    # stopwatch_thread.update_signal.connect(read_signals_tread_stopwatch)
     stopwatch_thread.start()
 ui.Button_Start_Stopwatch.clicked.connect(start_stopwch)
 
@@ -78,10 +120,31 @@ def pause_stopwch():
     ui.StatusBar.showMessage("Секундомір призупинено")
 ui.Button_Pause_Stopwatch.setEnabled(False)
 ui.Button_Pause_Stopwatch.clicked.connect(pause_stopwch)
+###
 
-def stot_watch_chec_box_sound_controll():
-    print("OKI")
-#####              #####
+
+iconSW = QtGui.QIcon()
+st_icon_check_dir_name = ""
+def stop_watch_chec_box_sound_controll(): ####################################################################################################
+    if ui.CheckBox_Stopwatch.checkState() > 0:
+        st_icon_check_dir_name = "Files/icon_sw.png"
+        # playsound("Files/signal_stopwatch.mp3") # Відтворюю звук
+    else:
+        st_icon_check_dir_name = "Files/icon_sw_stop.png"
+    iconSW.addPixmap(QtGui.QPixmap(st_icon_check_dir_name), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+    ui.CheckBox_Stopwatch.setIcon(iconSW)
+    
+    
+    # print("-"*10)
+    # print(ui.ComboBox_Stopwatch.currentText())
+    # print(ui.LineEdit_Time_Stopwath.text())
+ui.CheckBox_Stopwatch.stateChanged.connect(stop_watch_chec_box_sound_controll)
+
+
+def update_stopwatch_label(seconds):
+    ui.Output_Label_Stopwatch.setText(f"{seconds//3600:02}:{(seconds%3600)//60:02}:{seconds%60:02}")
+##########           ##########
+
 
 
 
@@ -96,7 +159,7 @@ timer_seconds_count = 0
 flag_status_sp = False
 time_buff = 0
 
-def read_signals_tread(val):
+def read_signals_tread_timer(val):
     global timer_seconds_count; timer_seconds_count = 1
     global flag_status_sp; flag_status_sp = False
     global time_buff
@@ -115,7 +178,7 @@ def start_tmr(seconds_in):
     global timer_thread
     timer_thread = TimerThread(timer_watch, seconds_in)
     timer_thread.update_signal.connect(update_timer_label)
-    timer_thread.update_signal.connect(read_signals_tread)
+    timer_thread.update_signal.connect(read_signals_tread_timer)
     timer_thread.start()
 
 def func_start_tmr():
@@ -231,9 +294,6 @@ ui.Timer_Button_30.clicked.connect(count_btn)
 
 
 #####
-def update_stopwatch_label(seconds):
-    ui.Output_Label_Stopwatch.setText(f"{seconds//3600:02}:{(seconds%3600)//60:02}:{seconds%60:02}")
-
 def update_timer_label(seconds):
     if seconds//86400:
         ui.Output_Label_Timer.setText(f"{seconds//86400:02}d/{(seconds%86400)//3600:02}h\n{(seconds%3600)//60:02}:{seconds%60:02}")
@@ -248,8 +308,6 @@ def update_timer_label(seconds):
 
 flag_sound_chec = 0
 ##########   Звуковий сигнал     ##########
-from playsound3 import playsound
-# from playsound import playsound
 def playing_sound_completion():
     global flag_sound_chec
     if flag_sound_chec == 1:
@@ -261,8 +319,7 @@ def playing_sound_completion():
 
 
 #####   Виставляю іконку і перемикаю флажок звуку   #####
-from PyQt5 import QtGui
-iconS = QtGui.QIcon()
+iconT = QtGui.QIcon()
 file_icon_dir = ""
 def func_check_box_sound_controll():
     """"""
@@ -271,15 +328,15 @@ def func_check_box_sound_controll():
 
     if stat_check > 0:
         ui.CheckBox_Sound.setText("On")
-        file_icon_dir = "Files/icon_enable.png"
+        file_icon_dir = "Files/icon_enable_t.png"
         flag_sound_chec = 1
     else:
         ui.CheckBox_Sound.setText("Off")
-        file_icon_dir = "Files/icon_mute.png"
+        file_icon_dir = "Files/icon_mute_t.png"
         flag_sound_chec = 0
     
-    iconS.addPixmap(QtGui.QPixmap(file_icon_dir), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-    ui.CheckBox_Sound.setIcon(iconS)
+    iconT.addPixmap(QtGui.QPixmap(file_icon_dir), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+    ui.CheckBox_Sound.setIcon(iconT)
     
 # ui.CheckBox_Sound.clicked.connect(func_check_box_sound_controll)
 ui.CheckBox_Sound.stateChanged.connect(func_check_box_sound_controll)
@@ -291,10 +348,10 @@ ui.CheckBox_Sound.stateChanged.connect(func_check_box_sound_controll)
 
 
 
-def open_window(): # Функція для відкриття вікна
+def main(): # Функція для відкриття вікна
     MainWindow.show()
     app.exec_()
 
 if __name__ == "__main__":
-    open_window()
+    main()
 

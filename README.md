@@ -4,6 +4,7 @@
 Компілюлювання .ui в .py:\
  pip install PyQt5 pyqt5-tools
  - pyuic5 -x Files/window_ts.ui -o uiWindow.py
+ - pyuic5 Files/window_ts.ui -o uiWindow.py
 
 \
 \

@@ -468,7 +468,7 @@ gridline-color: rgb(0, 0, 0);</string>
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>icon_mute.png</normaloff>icon_mute.png</iconset>
+            <normaloff>icon_mute_t.png</normaloff>icon_mute_t.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -524,7 +524,7 @@ gridline-color: rgb(0, 0, 0);</string>
            </font>
           </property>
           <property name="text">
-           <string>234</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -582,7 +582,7 @@ gridline-color: rgb(0, 0, 0);</string>
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>icon_block.png</normaloff>icon_block.png</iconset>
+            <normaloff>icon_sw_stop.png</normaloff>icon_sw_stop.png</iconset>
           </property>
           <property name="iconSize">
            <size>
