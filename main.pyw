@@ -78,7 +78,10 @@ def pause_stopwch():
     ui.StatusBar.showMessage("Секундомір призупинено")
 ui.Button_Pause_Stopwatch.setEnabled(False)
 ui.Button_Pause_Stopwatch.clicked.connect(pause_stopwch)
-#####   #####
+
+def stot_watch_chec_box_sound_controll():
+    print("OKI")
+#####              #####
 
 
 
@@ -250,7 +253,7 @@ from playsound3 import playsound
 def playing_sound_completion():
     global flag_sound_chec
     if flag_sound_chec == 1:
-        print("OKKKK")
+        # print("OKKKK")
         playsound("Files/signal_timer.mp3")
     else:pass
 #####       #####
