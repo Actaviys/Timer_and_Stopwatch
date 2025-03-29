@@ -53,7 +53,10 @@ class TimerThread(QThread):
         self.quit()
 
 
-
+### Відтворення мелодії для секундоміра ###
+async def func_play_sound_notification(patch_sound):
+    playsound(patch_sound)
+###
 
 
 ### Використання в UI-класі: ###
@@ -128,6 +131,8 @@ st_icon_check_dir_name = ""
 def stop_watch_chec_box_sound_controll(): ####################################################################################################
     if ui.CheckBox_Stopwatch.checkState() > 0:
         st_icon_check_dir_name = "Files/icon_sw.png"
+        # asyncio.
+        asyncio.run(func_play_sound_notification("Files/signal_stopwatch.mp3"))
         # playsound("Files/signal_stopwatch.mp3") # Відтворюю звук
     else:
         st_icon_check_dir_name = "Files/icon_sw_stop.png"
@@ -169,7 +174,8 @@ def read_signals_tread_timer(val):
         ui.Button_Start_Timer.setEnabled(True) # Вмикання кнопки
         ui.Button_Pause_Timer.setEnabled(False) # Вимикання кнопки
         ui.StatusBar.showMessage("")
-        playing_sound_completion() # Функція для звукового сигналу
+        asyncio.run(playing_sound_completion())
+        # playing_sound_completion() # Функція для звукового сигналу
         
         if timer_thread:
             timer_thread.stop()
@@ -308,7 +314,7 @@ def update_timer_label(seconds):
 
 flag_sound_chec = 0
 ##########   Звуковий сигнал     ##########
-def playing_sound_completion():
+async def playing_sound_completion():
     global flag_sound_chec
     if flag_sound_chec == 1:
         # print("OKKKK")
