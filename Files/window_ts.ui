@@ -526,6 +526,9 @@ gridline-color: rgb(0, 0, 0);</string>
           <property name="text">
            <string/>
           </property>
+          <property name="maxLength">
+           <number>5</number>
+          </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
           </property>

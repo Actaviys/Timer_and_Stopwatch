@@ -280,6 +280,7 @@ class Ui_MainWindow(object):
         font.setPointSize(9)
         self.LineEdit_Time_Stopwath.setFont(font)
         self.LineEdit_Time_Stopwath.setText("")
+        self.LineEdit_Time_Stopwath.setMaxLength(5)
         self.LineEdit_Time_Stopwath.setAlignment(QtCore.Qt.AlignCenter)
         self.LineEdit_Time_Stopwath.setObjectName("LineEdit_Time_Stopwath")
         self.horizontalLayout_5.addWidget(self.LineEdit_Time_Stopwath)

@@ -77,24 +77,28 @@ stopwatch_thread = StopwatchThread(timer_watch)
 #         curr_combo_box = 86400
 #     return curr_combo_box
 
-# def read_signals_tread_stopwatch(val):
-#     sw_time_buff = val
-#     curent_stopwatch_seconds = 0
-#     inp_line_edit = 0
+sw_count_in = 0
+sw_chec_count = False
+def read_signals_tread_stopwatch(val): #####################################################
+    global sw_count_in
+    sw_count_in = val
+    # sw_time_buff = val
+    # curent_stopwatch_seconds = 0
+    # inp_line_edit = 0
     
-#     inp_combo_box = ui.ComboBox_Stopwatch.currentText().lower()
-#     ret_current_tme = combo_box_swtopwatch_set_units(inp_combo_box)
+    # inp_combo_box = ui.ComboBox_Stopwatch.currentText().lower()
+    # ret_current_tme = combo_box_swtopwatch_set_units(inp_combo_box)
     
-#     try: inp_line_edit = int(ui.LineEdit_Time_Stopwath.text())
-#     except: ui.StatusBar.showMessage("Введіть число!!!", 3000)
+    # try: inp_line_edit = int(ui.LineEdit_Time_Stopwath.text())
+    # except: ui.StatusBar.showMessage("Введіть число!!!", 3000)
     
-#     if ui.CheckBox_Stopwatch.checkState() > 0:
-#         if inp_line_edit <= sw_time_buff:
-#             print("WWWWWWWWWWWWWWWWWWWWW")
-#             sw_time_buff = 0
+    # if ui.CheckBox_Stopwatch.checkState() > 0:
+    #     if inp_line_edit <= sw_time_buff:
+    #         print("WWWWWWWWWWWWWWWWWWWWW")
+    #         sw_time_buff = 0
         
     
-#     else: pass
+    # else: pass
 
 ###
 def start_stopwch():
@@ -104,7 +108,7 @@ def start_stopwch():
     global stopwatch_thread
     stopwatch_thread = StopwatchThread(timer_watch)
     stopwatch_thread.update_signal.connect(update_stopwatch_label)
-    # stopwatch_thread.update_signal.connect(read_signals_tread_stopwatch)
+    stopwatch_thread.update_signal.connect(read_signals_tread_stopwatch) #############
     stopwatch_thread.start()
 ui.Button_Start_Stopwatch.clicked.connect(start_stopwch)
 
@@ -129,15 +133,24 @@ ui.Button_Pause_Stopwatch.clicked.connect(pause_stopwch)
 iconSW = QtGui.QIcon()
 st_icon_check_dir_name = ""
 def stop_watch_chec_box_sound_controll(): ####################################################################################################
-    if ui.CheckBox_Stopwatch.checkState() > 0:
-        st_icon_check_dir_name = "Files/icon_sw.png"
-        # asyncio.
-        asyncio.run(func_play_sound_notification("Files/signal_stopwatch.mp3"))
-        # playsound("Files/signal_stopwatch.mp3") # Відтворюю звук
-    else:
-        st_icon_check_dir_name = "Files/icon_sw_stop.png"
-    iconSW.addPixmap(QtGui.QPixmap(st_icon_check_dir_name), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-    ui.CheckBox_Stopwatch.setIcon(iconSW)
+    inp_line_edit = 0
+    try: inp_line_edit = int(ui.LineEdit_Time_Stopwath.text())
+    except: ui.StatusBar.showMessage("Введіть число!!!", 3000)
+    print(inp_line_edit)
+    # global sw_count_in
+    print(sw_count_in)
+    # if ui.CheckBox_Stopwatch.checkState() > 0:
+        
+    
+    # if ui.CheckBox_Stopwatch.checkState() > 0:
+    #     st_icon_check_dir_name = "Files/icon_sw.png"
+        
+    #     # asyncio.run(func_play_sound_notification("Files/signal_stopwatch.mp3"))
+    #     # playsound("Files/signal_stopwatch.mp3") # Відтворюю звук
+    # else:
+    #     st_icon_check_dir_name = "Files/icon_sw_stop.png"
+    # iconSW.addPixmap(QtGui.QPixmap(st_icon_check_dir_name), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+    # ui.CheckBox_Stopwatch.setIcon(iconSW)
     
     
     # print("-"*10)
@@ -146,6 +159,7 @@ def stop_watch_chec_box_sound_controll(): ######################################
 ui.CheckBox_Stopwatch.stateChanged.connect(stop_watch_chec_box_sound_controll)
 
 
+#
 def update_stopwatch_label(seconds):
     ui.Output_Label_Stopwatch.setText(f"{seconds//3600:02}:{(seconds%3600)//60:02}:{seconds%60:02}")
 ##########           ##########
